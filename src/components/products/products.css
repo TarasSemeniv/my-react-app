@@ -1,0 +1,16 @@
+.products-list-container {
+    margin: 16px auto;
+    max-width: 60%;
+}
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: auto;
+}
+
+img {
+    width: 178px;
+    height: 178px;
+}
