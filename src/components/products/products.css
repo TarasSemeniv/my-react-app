@@ -14,3 +14,13 @@ img {
     width: 178px;
     height: 178px;
 }
+
+.info-button {
+    background-color: #7866c9;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+}
