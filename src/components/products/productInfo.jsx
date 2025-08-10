@@ -6,7 +6,7 @@ const ProductInfo = ({ manufacturer, country }) => {
 
     
     return (
-        <div style={{ position: 'relative'}}>
+        <div style={{ position: 'relative', zIndex: 1 }}>
             <button className='info-button' style={{margin: '12px 0'}} onClick={() => setIsVisible(!isVisible)}>Info</button>
             {isVisible && (
                 <div style={{ position: 'absolute', backgroundColor: '#fff', border: '1px solid #ccc', 

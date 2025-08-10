@@ -1,9 +1,9 @@
-import ProductsList from "./components/products/productsList";
+import { Outlet } from "react-router";
 
 function App() {
   return (
     <div>
-      <ProductsList />
+      <Outlet />
     </div>
   );
 }
