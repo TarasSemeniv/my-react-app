@@ -1,11 +1,15 @@
 import React from 'react';
 import ProductInfo from './productInfo';
-const ProductItem = ({product}) => {
+import ProductImages from './productImages';
+import ProductStarRating from './productStarRating';
+
+const ProductItem = ({product, handleLike}) => {
     return (
-        <div style={{ border: '1px solid #ccc', padding: '10px'}}>
-            <img src={product.image} alt={product.name} />
+        <div className='product-item'>
+            <ProductImages images={product.images} name={product.name} isLiked={product.isLiked} handleLike={handleLike} id={product.id} />
             <h4>{product.name}</h4>
             <p>Price: ${product.price}</p>
+            <ProductStarRating rate={product.rating} />
             <div style={{ display: 'flex', justifyContent: 'space-between'}}>
                 <ProductInfo manufacturer={product.manufacturer} country={product.country} />
                 <a  href='/'>
