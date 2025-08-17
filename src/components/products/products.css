@@ -172,3 +172,26 @@ img {
 .product-form a:hover {
   background: #3a7bd5;
 }
+
+/* style for product filter */
+
+.product-filter {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+    gap: 8px;
+}
+
+.product-filter span {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.product-filter select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
