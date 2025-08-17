@@ -7,6 +7,8 @@ const productsReducer = (products, action) => {
                 images: ["/images/product1.jpg", "/images/product2.jpg"],
                 rating: 3,
                 isLiked: false,
+                country: 'USA',
+                manufacturer: 'Acme Corp',
                 ...action.payload
             };
             return [...products, productToAdd];
