@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ProductSort = ({ sort, setSort, sortDirection, setSortDirection }) => {
+    console.log('ProductSort rendered');
     return (
         <div>
             <div className="product-filter">
@@ -19,4 +20,4 @@ const ProductSort = ({ sort, setSort, sortDirection, setSortDirection }) => {
     );
 }
 
-export default ProductSort;
+export default React.memo(ProductSort);

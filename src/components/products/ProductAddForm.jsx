@@ -3,6 +3,7 @@ import productsReducer from './productReducer';
 import { Link } from 'react-router';
 
 const ProductForm = () => {
+  console.log('ProductForm rendered');
     const [products, dispatch] = React.useReducer(productsReducer, []);
     const [form, setForm] = useState({ name: '', price: '', description: '' });
 
@@ -45,4 +46,4 @@ const ProductForm = () => {
     );
 };
 
-export default ProductForm;
+export default React.memo(ProductForm);

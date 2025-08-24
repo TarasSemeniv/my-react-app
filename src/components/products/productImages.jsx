@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ProductImages = ({ images, name, isLiked, handleLike, id }) => {
+    console.log(`ProductImages {${id}} rendered`);
     const [image, SetImage] = React.useState(images[0]);
     const [hearted, SetHearted] = React.useState(isLiked || false);
 
@@ -25,4 +26,4 @@ const ProductImages = ({ images, name, isLiked, handleLike, id }) => {
     );
 }
 
-export default ProductImages;
+export default React.memo(ProductImages);
