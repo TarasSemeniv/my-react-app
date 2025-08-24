@@ -2,7 +2,7 @@ import React from 'react';
 import { COUNTRYS } from './products.js';
 
 const ProductFilter = ({ filter, setFilter }) => {
-
+    console.log('ProductFilter rendered');
     const handleCountryChange = (e) => {
         if (e.target.value === 'All') {
             setFilter({ type: 'All', value: null });
@@ -28,4 +28,4 @@ const ProductFilter = ({ filter, setFilter }) => {
     );
 }
 
-export default ProductFilter;
+export default React.memo(ProductFilter);

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductInfo = ({ manufacturer, country }) => {
-
+    console.log('ProductInfo rendered');
     const [isVisible, setIsVisible] = React.useState(false);
 
     
@@ -20,4 +20,4 @@ const ProductInfo = ({ manufacturer, country }) => {
     );
 }
 
-export default ProductInfo;
+export default React.memo(ProductInfo);

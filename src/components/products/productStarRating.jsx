@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ProductStarRating = ({rate}) => {
+    console.log('ProductStarRating rendered');
     const [rating, setRating] = React.useState(rate || 0);
 
     const handleClick = (i) => {
@@ -16,4 +17,4 @@ const ProductStarRating = ({rate}) => {
     );
 }
 
-export default ProductStarRating;
+export default React.memo(ProductStarRating);

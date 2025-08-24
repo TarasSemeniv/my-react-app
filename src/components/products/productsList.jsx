@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import ProductItem from './productItem';
 import './products.css';
 import {CONST_PRODUCTS} from './products.js';
@@ -8,6 +8,8 @@ import ProductSort from './productSort.jsx';
 import ProductFilter from './productFilter.jsx';
 
 const ProductsList = () => {
+    console.log('ProductsList rendered');
+
     const [products, dispatch] = React.useReducer(productsReducer, []);
     const [sort, setSort] = React.useState('Price');
     const [sortDirection, setSortDirection] = React.useState('Up');
@@ -22,9 +24,9 @@ const ProductsList = () => {
         localStorage.setItem('products', JSON.stringify(products));
     }, [products]);
 
-    const handleLike = (id) => {
+    const handleLike = useCallback((id) => {
         dispatch({ type: 'TOGGLE_LIKE', payload: { id } });
-    };
+    }, [dispatch]);
 
     const sortObject = {
         Price: (a, b) => a.price - b.price,
@@ -63,4 +65,4 @@ const ProductsList = () => {
     );
 }
 
-export default ProductsList;
+export default React.memo(ProductsList);

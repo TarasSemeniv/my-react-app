@@ -4,6 +4,7 @@ import ProductImages from './productImages';
 import ProductStarRating from './productStarRating';
 
 const ProductItem = ({product, handleLike}) => {
+    console.log(`ProductItem {${product.id}} rendered`);
     return (
         <div className='product-item'>
             <ProductImages images={product.images} name={product.name} isLiked={product.isLiked} handleLike={handleLike} id={product.id} />
@@ -20,4 +21,13 @@ const ProductItem = ({product, handleLike}) => {
     );
 }
 
-export default ProductItem;
+export default React.memo(ProductItem, (prevProps, nextProps) => {
+    return prevProps.product.id === nextProps.product.id &&
+    prevProps.product.isLiked === nextProps.product.isLiked &&
+    prevProps.product.images === nextProps.product.images &&
+    prevProps.product.name === nextProps.product.name &&
+    prevProps.product.price === nextProps.product.price &&
+    prevProps.product.rating === nextProps.product.rating &&
+    prevProps.product.manufacturer === nextProps.product.manufacturer &&
+    prevProps.product.country === nextProps.product.country;
+});
