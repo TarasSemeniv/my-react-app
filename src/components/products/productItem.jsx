@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ProductInfo from './productInfo';
 import ProductImages from './productImages';
 import ProductStarRating from './productStarRating';
+import FavoritesContext from '../../contexts/FavoritesContext';
 
-const ProductItem = ({product, handleLike}) => {
-    console.log(`ProductItem {${product.id}} rendered`);
+
+const ProductItem = ({product}) => {
+    const { favorites, addFavorite, removeFavorite } = useContext(FavoritesContext);
+
+    const isFavorite = favorites.find(item => item.id === product.id) ? true : false;
+
+    const handleLike = () => {
+        if (isFavorite) {
+            removeFavorite(product.id);
+        } else {
+            addFavorite(product);
+        }
+    };
+
     return (
         <div className='product-item'>
-            <ProductImages images={product.images} name={product.name} isLiked={product.isLiked} handleLike={handleLike} id={product.id} />
+            <ProductImages images={product.images} name={product.name} isLiked={isFavorite} handleLike={handleLike} id={product.id} />
             <h4>{product.name}</h4>
             <p>Price: ${product.price}</p>
             <ProductStarRating rate={product.rating} />
@@ -23,7 +36,6 @@ const ProductItem = ({product, handleLike}) => {
 
 export default React.memo(ProductItem, (prevProps, nextProps) => {
     return prevProps.product.id === nextProps.product.id &&
-    prevProps.product.isLiked === nextProps.product.isLiked &&
     prevProps.product.images === nextProps.product.images &&
     prevProps.product.name === nextProps.product.name &&
     prevProps.product.price === nextProps.product.price &&
