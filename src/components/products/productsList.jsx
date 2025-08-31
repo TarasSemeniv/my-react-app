@@ -8,7 +8,6 @@ import ProductSort from './productSort.jsx';
 import ProductFilter from './productFilter.jsx';
 
 const ProductsList = () => {
-    console.log('ProductsList rendered');
 
     const [products, dispatch] = React.useReducer(productsReducer, []);
     const [sort, setSort] = React.useState('Price');
@@ -56,7 +55,6 @@ const ProductsList = () => {
                     <ProductItem 
                         key={product.id} 
                         product={product}
-                        handleLike={handleLike}
                     />
                 ))}
                 <ProductAdd  />
